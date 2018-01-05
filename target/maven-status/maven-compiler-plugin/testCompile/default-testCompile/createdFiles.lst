@@ -3,6 +3,7 @@ test/utils/PicoDependencyInjector.class
 test/runner/RunCukesTest.class
 test/utils/Context.class
 test/pageObjects/SearchResults.class
+test/utils/RegexUtilities.class
 test/utils/DriverUtils$DriverType.class
 test/pageObjects/HomePage.class
 test/utils/DriverUtils.class

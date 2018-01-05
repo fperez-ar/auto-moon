@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import test.utils.Context;
+import test.utils.RegexUtilities;
 
 public class SearchResults {
 
@@ -53,19 +54,30 @@ public class SearchResults {
 
 		for (int i = 0; i < ws.size(); i++) {
 
+
 			String rawPrice = ws.get(i).findElement(By.className("item-info"))
 					.findElement(By.className("price-wrap"))
 					.findElement(By.className("price"))
 					.getText();
 
 			System.out.println(rawPrice);
-			//parse the initial price (first element of capture group)
-			// store in hashmap with webelement reference
+			String processedPrice = RegexUtilities.ApplyRegex(rawPrice, "ARS\\$(\\d*,\\d{2})");
+			System.out.println(processedPrice);
+			
+			elementPrice.put(ws.get(i), Integer.parseInt(processedPrice));
+			
+			
+			// DONE:
+			// parse the initial price (first element of capture group)
+			// store in hashmap with webelement reference 
+			
+			// TODO:
 			// sort by price
+			// see >> http://www.vogella.com/tutorials/JavaAlgorithmsQuicksort/article.html
+			// or 
 			// get first
-			// ????
+			// https://youtu.be/nEEPosF-tNU ????
 			// Success!
-			//System.out.println(processedPrice);
 
 			System.out.println("....");
 		}
