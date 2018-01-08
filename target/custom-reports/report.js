@@ -62,7 +62,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 1070414188,
+  "duration": 785756615,
   "status": "passed"
 });
 formatter.scenario({
@@ -106,7 +106,7 @@ formatter.match({
   "location": "Search.user_navigates_homepage()"
 });
 formatter.result({
-  "duration": 2498515660,
+  "duration": 2577703287,
   "status": "passed"
 });
 formatter.match({
@@ -119,7 +119,7 @@ formatter.match({
   "location": "Search.user_searches(String)"
 });
 formatter.result({
-  "duration": 1735068236,
+  "duration": 1390188350,
   "status": "passed"
 });
 formatter.match({
@@ -132,7 +132,7 @@ formatter.match({
   "location": "Search.user_sorts_results_by(String)"
 });
 formatter.result({
-  "duration": 1284116770,
+  "duration": 1979772302,
   "status": "passed"
 });
 formatter.match({
@@ -145,14 +145,13 @@ formatter.match({
   "location": "Search.topmost_result_is(String)"
 });
 formatter.result({
-  "duration": 279643266,
-  "error_message": "java.lang.NumberFormatException: For input string: \"270,78\"\n\tat java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)\n\tat java.lang.Integer.parseInt(Integer.java:580)\n\tat java.lang.Integer.parseInt(Integer.java:615)\n\tat test.pageObjects.SearchResults.getCheapest(SearchResults.java:68)\n\tat test.steps.Search.topmost_result_is(Search.java:74)\n\tat ✽.Then topmost result is: \"Sailor Moon 7\"(search.feature:7)\n",
-  "status": "failed"
+  "duration": 6521131884,
+  "status": "passed"
 });
-formatter.write("https://www.bookdepository.com/search?searchTerm\u003dSailor+Moon+7\u0026ageRangesTotal\u003d1\u0026searchSortBy\u003dprice_low_high");
-formatter.embedding("image/png", "embedded0.png");
+formatter.write("Cheapest price found: ARS$251,21");
+formatter.write("See https://www.bookdepository.com/Sailor-Moon-Vol-7-Naoko-Takeuchi/9781612620039?ref\u003dgrid-view\u0026qid\u003d1515441604018\u0026sr\u003d1-2");
 formatter.after({
-  "duration": 353478024,
+  "duration": 72823685,
   "status": "passed"
 });
 });

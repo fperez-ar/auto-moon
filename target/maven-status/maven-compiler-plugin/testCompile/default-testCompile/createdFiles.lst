@@ -7,5 +7,6 @@ test/utils/RegexUtilities.class
 test/utils/DriverUtils$DriverType.class
 test/pageObjects/HomePage.class
 test/utils/DriverUtils.class
+test/pageObjects/BookPage.class
 test/utils/DriverUtils$1.class
 test/steps/Search.class

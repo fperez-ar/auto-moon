@@ -1,7 +1,9 @@
 package test.pageObjects;
 
-import java.util.HashMap;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
+import java.util.Locale;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,12 +11,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 import test.utils.Context;
+import test.utils.DriverUtils;
 import test.utils.RegexUtilities;
 
 public class SearchResults {
 
 	private WebDriver driver;
-	public By searchSortLocator = By.xpath("//select[@name='searchSortBy']");// By.name("searchSortBy");
+	public By searchSortLocator = By.xpath("//select[@name='searchSortBy']"); // By.name("searchSortBy");
+
+	By bookItemLocator = By.cssSelector("div.book-item");
+	By priceChildLocator = By.xpath("div[@class='item-info']//p[@class='price']");
 
 	public SearchResults(Context context) {
 		driver = context.getDriver();
@@ -42,46 +48,62 @@ public class SearchResults {
 
 	public WebElement getFirst() {
 
-		return driver.findElements(By.cssSelector("div.book-item")).get(0);
+		return driver.findElements(bookItemLocator).get(0);
 	}
 
+	
 	public WebElement getCheapest() {
-		// 		  ARS$270,78 
-		// REGEXd ARS\$(\d*,\d{2})
 
-		List<WebElement> ws = driver.findElements(By.cssSelector("div.book-item"));
-		HashMap<WebElement, Integer> elementPrice = new HashMap<WebElement, Integer>(ws.size());
+		List<WebElement> searchResults = driver.findElements(bookItemLocator);
+		
+		
+		int min = Integer.MAX_VALUE;
+		WebElement minElement = null;
 
-		for (int i = 0; i < ws.size(); i++) {
+		System.out.println("Found " + searchResults.size() + " elements: ");
+		
+		for (int i = 0; i < searchResults.size(); i++) {
 
 
-			String rawPrice = ws.get(i).findElement(By.className("item-info"))
-					.findElement(By.className("price-wrap"))
-					.findElement(By.className("price"))
-					.getText();
-
-			System.out.println(rawPrice);
-			String processedPrice = RegexUtilities.ApplyRegex(rawPrice, "ARS\\$(\\d*,\\d{2})");
-			System.out.println(processedPrice);
+			System.out.println( "---------------"+i+"-------------" );
+			System.out.println( searchResults.get(i).getText() );
 			
-			elementPrice.put(ws.get(i), Integer.parseInt(processedPrice));
+			if ( ! DriverUtils.isChildPresent(driver, searchResults.get(i), priceChildLocator)) continue;
 			
+			String rawPrice = searchResults.get(i).findElement(priceChildLocator).getText();
 			
-			// DONE:
-			// parse the initial price (first element of capture group)
-			// store in hashmap with webelement reference 
-			
-			// TODO:
-			// sort by price
-			// see >> http://www.vogella.com/tutorials/JavaAlgorithmsQuicksort/article.html
-			// or 
-			// get first
-			// https://youtu.be/nEEPosF-tNU ????
-			// Success!
+			String processedPrice = RegexUtilities.ApplyRegex(rawPrice, "ARS\\$([\\d*\\.*]*,\\d*)");
 
-			System.out.println("....");
+			// GERMAN format 1.234,56 = (mil ciento veintitres con cincuenta y seis centavos)
+			int currentPrice = parsePrice(processedPrice, Locale.GERMAN);
+
+			if (currentPrice < min) {
+				min = currentPrice;
+				minElement = searchResults.get(i);
+			}
+
+			System.out.println("raw:" + rawPrice);
+			System.out.println("processed(str):" + processedPrice + " (int):" + currentPrice);
+
+			System.out.println( "________________________________" );
+
 		}
 
-		return null;
+		System.out.println("Final min price :" + min);
+		return minElement;
+	}
+
+	private int parsePrice(String price, Locale locale) {
+		int currentPrice = Integer.MAX_VALUE;
+
+		NumberFormat formatter = NumberFormat.getNumberInstance(locale);
+
+		try {
+			currentPrice = formatter.parse(price).intValue();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		return currentPrice;
 	}
 }
