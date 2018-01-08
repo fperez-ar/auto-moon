@@ -11,14 +11,14 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import test.pageObjects.BookPage;
 import test.pageObjects.HomePage;
-import test.pageObjects.SearchResults;
+import test.pageObjects.SearchResultsPage;
 import test.utils.Context;
 import test.utils.DriverUtils;
 
 public class Search {
 
 	private HomePage homepage;
-	private SearchResults searchResults;
+	private SearchResultsPage searchResultsPage;
 	private Context context;
 
 	public Search(Context context) {
@@ -37,19 +37,19 @@ public class Search {
 
 		if (scenario.isFailed()) {
 			final byte[] screenshot = DriverUtils.takeScreenshotAsByteArray(context.getDriver());
-			scenario.write( context.getDriver().getCurrentUrl() );
+			//scenario.write("Failed in URL: " context.getDriver().getCurrentUrl() );
 			scenario.embed(screenshot, "image/png");
 		}
 
 
-		scenario.write("Cheapest price found: "+context.retrieveData("price") );
-		scenario.write("See "+context.getDriver().getCurrentUrl() );
+		scenario.write("* Cheapest price found: "+context.retrieveData("price") );
+		scenario.write("* See "+context.getDriver().getCurrentUrl() );
 		context.getDriver().quit();
 	}
 
 	@Given("^User navigates to Homepage$")
 	public void user_navigates_homepage() throws Throwable {
-		context.getDriver().get(homepage.getUrl());
+		homepage.navigateTo();
 	}
 
 	@When("^User searches: \"(.*)\"$")
@@ -61,28 +61,24 @@ public class Search {
 	@When("^User sorts results by: \"(.*)\"$")
 	public void user_sorts_results_by(String sortCriteria) throws Throwable {
 
-		new WebDriverWait(this.context.getDriver(), 5).until(ExpectedConditions.urlContains("/search?searchTerm"));
+		new WebDriverWait(context.getDriver(), 5).until(ExpectedConditions.urlContains("/search?searchTerm"));
 
-		searchResults = new SearchResults(context);
-		searchResults.sort(sortCriteria);
+		searchResultsPage = new SearchResultsPage(context);
+		searchResultsPage.sort(sortCriteria);
 	}
 
-	@Then("^topmost result is: \"(.*)\"$")
-	public void topmost_result_is(String result) throws Throwable {
-		
-		searchResults.getCheapest().click();
+
+	@Then("^cheapest result contains: \"([^\"]*)\"$")
+	public void cheapest_result_contains(String result) throws Throwable {
+
+		searchResultsPage.getCheapest().click();
 
 		BookPage bookPage = new BookPage(context);
 
-		String title = bookPage.getTitle();
 		String price = bookPage.getPrice();
 		context.storeData("price",price);
-
-		//<a href="/author/Naoko-Takeuchi" itemprop="author">Naoko Takeuchi</a>
-		//Assert.assertTrue( ("//a[@itemprop='author']").getText() );
-
-		//<h1 itemprop="name">Sailor Moon Vol. 7</h1>
-		//Assert.assertTrue( ("//h1[@itemprop='name']").getText() );
+		
+		
 
 		// take screenshot
 		DriverUtils.takeScreenshot(context.getDriver(), System.getProperty("user.dir") + "/sailormoon7.png");

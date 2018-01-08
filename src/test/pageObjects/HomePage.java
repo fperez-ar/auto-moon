@@ -21,6 +21,13 @@ public class HomePage {
 		return url;
 	}
 
+	public void navigateTo()
+	{
+		//navigate to keeps the browser History and cookies
+		driver.navigate().to(url);
+		//get doesn't maintain the browser History and cookies
+		//driver.get(url);
+	}
 
 	public void Search(String searchTerm) {
 		//WebElement searchBar = driver.findElement(By.name("search"));
