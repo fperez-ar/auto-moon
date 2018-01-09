@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="test.runner.RunCukesTest" time="12.45" tests="1" errors="0" skipped="0" failures="1">
+<testsuite name="test.runner.RunCukesTest" time="16.829" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
@@ -59,82 +59,5 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="feature" classname="test.runner.RunCukesTest" time="12.45">
-    <failure message="java.lang.AssertionError: expected [true] but found [false]" type="cucumber.runtime.CucumberException">cucumber.runtime.CucumberException: java.lang.AssertionError: expected [true] but found [false]
-	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
-	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:571)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:707)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:979)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:648)
-	at org.testng.TestRunner.run(TestRunner.java:505)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1187)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1116)
-	at org.testng.TestNG.runSuites(TestNG.java:1028)
-	at org.testng.TestNG.run(TestNG.java:996)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:115)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeSingleClass(TestNGDirectoryTestSuite.java:128)
-	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:112)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:112)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
-Caused by: java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:96)
-	at org.testng.Assert.failNotEquals(Assert.java:776)
-	at org.testng.Assert.assertTrue(Assert.java:44)
-	at org.testng.Assert.assertTrue(Assert.java:54)
-	at test.steps.Search.cheapest_result_contains(Search.java:84)
-	at ✽.Then cheapest result contains: "Sailor Moon 7"(search.feature:7)
-</failure>
-    <system-out><![CDATA[Configuring TestNG with: TestNG652Configurator
-Feature: 
-
-  Scenario Outline: Search                       &amp#27;[90m# search.feature:3&amp#27;[0m
-    &amp#27;[36mGiven &amp#27;[0m&amp#27;[36mUser navigates to Homepage&amp#27;[0m
-    &amp#27;[36mWhen &amp#27;[0m&amp#27;[36mUser searches: "<search_term>"&amp#27;[0m
-    &amp#27;[36mAnd &amp#27;[0m&amp#27;[36mUser sorts results by: "<sort_criteria>"&amp#27;[0m
-    &amp#27;[36mThen &amp#27;[0m&amp#27;[36mcheapest result contains: "<result>"&amp#27;[0m
-
-    Examples: 
-/home/federicoperez/Documents/code/cursos/auto-moon/src/test/resources/drivers/chromedriver
-Final min price :251
--------------- [[ChromeDriver: chrome on LINUX (da8217525300bbebdc7a1acafd1e63bd)] -> xpath: //div[@class='author-info hidden-md']//a[@href='/author/Naoko-Takeuchi']]
-author: 
-&amp#27;[34m* Cheapest price found: ARS$251,21&amp#27;[0m
-&amp#27;[34m* See https://www.bookdepository.com/Sailor-Moon-Vol-7-Naoko-Takeuchi/9781612620039?ref=grid-view&qid=1515444529899&sr=1-2&amp#27;[0m
-
-  Scenario Outline: Search                          &amp#27;[90m# search.feature:11&amp#27;[0m
-    &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mUser navigates to Homepage&amp#27;[0m                &amp#27;[90m# Search.user_navigates_homepage()&amp#27;[0m
-    &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mUser searches: "&amp#27;[0m&amp#27;[32m&amp#27;[1mSailor Moon 7&amp#27;[0m&amp#27;[32m"&amp#27;[0m             &amp#27;[90m# Search.user_searches(String)&amp#27;[0m
-    &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mUser sorts results by: "&amp#27;[0m&amp#27;[32m&amp#27;[1mPrice, low to high&amp#27;[0m&amp#27;[32m"&amp#27;[0m &amp#27;[90m# Search.user_sorts_results_by(String)&amp#27;[0m
-    &amp#27;[31mThen &amp#27;[0m&amp#27;[31mcheapest result contains: "&amp#27;[0m&amp#27;[31m&amp#27;[1mSailor Moon 7&amp#27;[0m&amp#27;[31m"&amp#27;[0m  &amp#27;[90m# Search.cheapest_result_contains(String)&amp#27;[0m
-      &amp#27;[31mjava.lang.AssertionError: expected [true] but found [false]
-      	at org.testng.Assert.fail(Assert.java:96)
-      	at org.testng.Assert.failNotEquals(Assert.java:776)
-      	at org.testng.Assert.assertTrue(Assert.java:44)
-      	at org.testng.Assert.assertTrue(Assert.java:54)
-      	at test.steps.Search.cheapest_result_contains(Search.java:84)
-      	at ✽.Then cheapest result contains: "Sailor Moon 7"(search.feature:7)
-      &amp#27;[0m
-]]></system-out>
-    <system-err><![CDATA[Starting ChromeDriver 2.34.522913 (36222509aa6e819815938cbf2709b4849735537c) on port 21756
-Only local connections are allowed.
-Jan 08, 2018 5:48:45 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: OSS
-]]></system-err>
-  </testcase>
+  <testcase name="feature" classname="test.runner.RunCukesTest" time="16.829"/>
 </testsuite>

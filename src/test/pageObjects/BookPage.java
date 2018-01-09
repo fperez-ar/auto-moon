@@ -10,7 +10,7 @@ public class BookPage {
 
 	private By titleLocator = By.xpath("//h1[@itemprop='name']");
 	private By priceLocator = By.cssSelector("span.sale-price");
-	
+	private By authorLocator = By.xpath("//div[@class='author-info hidden-md']//a[@itemprop='author']");
 
 	public BookPage (Context context) {
 		driver = context.getDriver();
@@ -26,5 +26,9 @@ public class BookPage {
 		return driver.findElement(priceLocator).getText();
 	}
 
+	public String getAuthor()
+	{
+		return driver.findElement(authorLocator).getText();
+	}
 
 }

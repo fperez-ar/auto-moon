@@ -78,8 +78,7 @@ public class Search {
 		String price = bookPage.getPrice();
 		context.storeData("price",price);
 		
-		
-
+		System.out.println(bookPage.getAuthor());
 		// take screenshot
 		DriverUtils.takeScreenshot(context.getDriver(), System.getProperty("user.dir") + "/sailormoon7.png");
 	}
