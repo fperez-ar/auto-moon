@@ -31,11 +31,16 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "cheapest result contains: \"\u003cresult\u003e\"",
+  "name": "cheapest title contains: \"\u003cresult_title\u003e\"",
   "keyword": "Then "
 });
+formatter.step({
+  "line": 8,
+  "name": "author is: \"\u003cresult_author\u003e\"",
+  "keyword": "And "
+});
 formatter.examples({
-  "line": 9,
+  "line": 10,
   "name": "",
   "description": "",
   "id": ";search;",
@@ -44,29 +49,31 @@ formatter.examples({
       "cells": [
         "search_term",
         "sort_criteria",
-        "result"
+        "result_title",
+        "result_author"
       ],
-      "line": 10,
+      "line": 11,
       "id": ";search;;1"
     },
     {
       "cells": [
         "Sailor Moon 7",
         "Price, low to high",
-        "Sailor Moon 7"
+        "Sailor Moon Vol. 7",
+        "Naoko Takeuchi"
       ],
-      "line": 11,
+      "line": 12,
       "id": ";search;;2"
     }
   ],
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 4579709623,
+  "duration": 1861873238,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 11,
+  "line": 12,
   "name": "Search",
   "description": "",
   "id": ";search;;2",
@@ -96,17 +103,25 @@ formatter.step({
 });
 formatter.step({
   "line": 7,
-  "name": "cheapest result contains: \"Sailor Moon 7\"",
+  "name": "cheapest title contains: \"Sailor Moon Vol. 7\"",
   "matchedColumns": [
     2
   ],
   "keyword": "Then "
 });
+formatter.step({
+  "line": 8,
+  "name": "author is: \"Naoko Takeuchi\"",
+  "matchedColumns": [
+    3
+  ],
+  "keyword": "And "
+});
 formatter.match({
   "location": "Search.user_navigates_homepage()"
 });
 formatter.result({
-  "duration": 2649939570,
+  "duration": 2598876142,
   "status": "passed"
 });
 formatter.match({
@@ -119,7 +134,7 @@ formatter.match({
   "location": "Search.user_searches(String)"
 });
 formatter.result({
-  "duration": 1540470677,
+  "duration": 1487085494,
   "status": "passed"
 });
 formatter.match({
@@ -132,26 +147,39 @@ formatter.match({
   "location": "Search.user_sorts_results_by(String)"
 });
 formatter.result({
-  "duration": 1208451629,
+  "duration": 972117110,
   "status": "passed"
 });
 formatter.match({
   "arguments": [
     {
-      "val": "Sailor Moon 7",
-      "offset": 27
+      "val": "Sailor Moon Vol. 7",
+      "offset": 26
     }
   ],
-  "location": "Search.cheapest_result_contains(String)"
+  "location": "Search.cheapest_title_contains(String)"
 });
 formatter.result({
-  "duration": 6718002502,
+  "duration": 6147328511,
+  "status": "passed"
+});
+formatter.match({
+  "arguments": [
+    {
+      "val": "Naoko Takeuchi",
+      "offset": 12
+    }
+  ],
+  "location": "Search.author_is(String)"
+});
+formatter.result({
+  "duration": 192895611,
   "status": "passed"
 });
 formatter.write("* Cheapest price found: ARS$251,21");
-formatter.write("* See https://www.bookdepository.com/Sailor-Moon-Vol-7-Naoko-Takeuchi/9781612620039?ref\u003dgrid-view\u0026qid\u003d1515518857488\u0026sr\u003d1-2");
+formatter.write("* See https://www.bookdepository.com/Sailor-Moon-Vol-7-Naoko-Takeuchi/9781612620039?ref\u003dgrid-view\u0026qid\u003d1515520476512\u0026sr\u003d1-2");
 formatter.after({
-  "duration": 81262407,
+  "duration": 161886427,
   "status": "passed"
 });
 });

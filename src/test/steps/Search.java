@@ -2,6 +2,7 @@ package test.steps;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -18,6 +19,7 @@ import test.utils.DriverUtils;
 public class Search {
 
 	private HomePage homepage;
+	private BookPage bookPage;
 	private SearchResultsPage searchResultsPage;
 	private Context context;
 
@@ -68,17 +70,24 @@ public class Search {
 	}
 
 
-	@Then("^cheapest result contains: \"([^\"]*)\"$")
-	public void cheapest_result_contains(String result) throws Throwable {
+	@Then("^cheapest title contains: \"(.*)\"$")
+	public void cheapest_title_contains(String resultTitle) throws Throwable {
 
 		searchResultsPage.getCheapest().click();
-
-		BookPage bookPage = new BookPage(context);
+		bookPage = new BookPage(context);
 
 		String price = bookPage.getPrice();
 		context.storeData("price",price);
 		
-		System.out.println(bookPage.getAuthor());
+		Assert.assertEquals(resultTitle, bookPage.getTitle());
+		
+	}
+	
+	@Then("^author is: \"(.*)\"$")
+	public void author_is(String resultAuthor) throws Throwable {
+
+		Assert.assertEquals(resultAuthor, bookPage.getAuthor());
+
 		// take screenshot
 		DriverUtils.takeScreenshot(context.getDriver(), System.getProperty("user.dir") + "/sailormoon7.png");
 	}
