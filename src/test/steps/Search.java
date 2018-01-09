@@ -38,14 +38,15 @@ public class Search {
 	public void tearDownTest(Scenario scenario) {
 
 		if (scenario.isFailed()) {
-			final byte[] screenshot = DriverUtils.takeScreenshotAsByteArray(context.getDriver());
-			//scenario.write("Failed in URL: " context.getDriver().getCurrentUrl() );
-			scenario.embed(screenshot, "image/png");
+			scenario.write("Failed in URL: " + context.getDriver().getCurrentUrl() );
 		}
 
 
 		scenario.write("* Cheapest price found: "+context.retrieveData("price") );
 		scenario.write("* See "+context.getDriver().getCurrentUrl() );
+		final byte[] screenshot = DriverUtils.takeScreenshotAsByteArray(context.getDriver());
+		scenario.embed(screenshot, "image/png");
+		
 		context.getDriver().quit();
 	}
 
@@ -69,7 +70,6 @@ public class Search {
 		searchResultsPage.sort(sortCriteria);
 	}
 
-
 	@Then("^cheapest title contains: \"(.*)\"$")
 	public void cheapest_title_contains(String resultTitle) throws Throwable {
 
@@ -77,19 +77,20 @@ public class Search {
 		bookPage = new BookPage(context);
 
 		String price = bookPage.getPrice();
-		context.storeData("price",price);
-		
+		context.storeData("price", price);
+
 		Assert.assertEquals(resultTitle, bookPage.getTitle());
-		
+
 	}
-	
+
 	@Then("^author is: \"(.*)\"$")
 	public void author_is(String resultAuthor) throws Throwable {
 
 		Assert.assertEquals(resultAuthor, bookPage.getAuthor());
 
 		// take screenshot
-		DriverUtils.takeScreenshot(context.getDriver(), System.getProperty("user.dir") + "/sailormoon7.png");
+		// DriverUtils.takeScreenshot(context.getDriver(),
+		// System.getProperty("user.dir") + "/sailormoon7.png");
 	}
 
 }
