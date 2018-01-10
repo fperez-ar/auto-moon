@@ -2,9 +2,9 @@
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/pageObjects/BookPage.java
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/utils/RegexUtilities.java
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/utils/Context.java
+/home/federicoperez/Documents/code/cursos/auto-moon/src/test/pageObjects/SearchResultsPage.java
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/utils/DriverUtils.java
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/pageObjects/HomePage.java
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/utils/PicoDependencyInjector.java
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/steps/Search.java
-/home/federicoperez/Documents/code/cursos/auto-moon/src/test/pageObjects/SearchResults.java
 /home/federicoperez/Documents/code/cursos/auto-moon/src/test/runner/RunCukesTest.java

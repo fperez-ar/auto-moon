@@ -69,7 +69,7 @@ formatter.examples({
   "keyword": "Examples"
 });
 formatter.before({
-  "duration": 1216488802,
+  "duration": 1136685409,
   "status": "passed"
 });
 formatter.scenario({
@@ -121,7 +121,7 @@ formatter.match({
   "location": "Search.user_navigates_homepage()"
 });
 formatter.result({
-  "duration": 2603714874,
+  "duration": 26720297237,
   "status": "passed"
 });
 formatter.match({
@@ -134,7 +134,7 @@ formatter.match({
   "location": "Search.user_searches(String)"
 });
 formatter.result({
-  "duration": 1529505837,
+  "duration": 72090913697,
   "status": "passed"
 });
 formatter.match({
@@ -147,7 +147,7 @@ formatter.match({
   "location": "Search.user_sorts_results_by(String)"
 });
 formatter.result({
-  "duration": 1131023844,
+  "duration": 14002173198,
   "status": "passed"
 });
 formatter.match({
@@ -160,7 +160,7 @@ formatter.match({
   "location": "Search.cheapest_title_contains(String)"
 });
 formatter.result({
-  "duration": 6242384748,
+  "duration": 11889105975,
   "status": "passed"
 });
 formatter.match({
@@ -173,14 +173,14 @@ formatter.match({
   "location": "Search.author_is(String)"
 });
 formatter.result({
-  "duration": 23947085,
+  "duration": 85796264,
   "status": "passed"
 });
-formatter.write("* Cheapest price found: ARS$251,21");
-formatter.write("* See https://www.bookdepository.com/Sailor-Moon-Vol-7-Naoko-Takeuchi/9781612620039?ref\u003dgrid-view\u0026qid\u003d1515520693660\u0026sr\u003d1-2");
+formatter.write("* Cheapest price found: ARS$250,96");
+formatter.write("* See https://www.bookdepository.com/Sailor-Moon-Vol-7-Naoko-Takeuchi/9781612620039?ref\u003dgrid-view\u0026qid\u003d1515591525188\u0026sr\u003d1-2");
 formatter.embedding("image/png", "embedded0.png");
 formatter.after({
-  "duration": 184640235,
+  "duration": 250845339,
   "status": "passed"
 });
 });

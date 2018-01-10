@@ -11,6 +11,8 @@ public class HomePage {
 
 	private WebDriver driver;
 	private String url = "https://www.bookdepository.com";
+	private By searchBarLocator = By.name("searchTerm")
+
 
 	public HomePage(Context context) {
 		driver = context.getDriver();
@@ -30,8 +32,7 @@ public class HomePage {
 	}
 
 	public void Search(String searchTerm) {
-		//WebElement searchBar = driver.findElement(By.name("search"));
-		WebElement searchBar = driver.findElement(By.name("searchTerm"));
+		WebElement searchBar = driver.findElement(searchBarLocator);
 		searchBar.clear();
 		searchBar.sendKeys(searchTerm);
 		searchBar.sendKeys(Keys.ENTER);
