@@ -79,7 +79,8 @@ public class Search {
 		String price = bookPage.getPrice();
 		context.storeData("price", price);
 
-		Assert.assertEquals(resultTitle, bookPage.getTitle());
+		Assert.assertTrue( bookPage.getTitle().contains(resultTitle) );
+		//Assert.assertEquals(resultTitle, );
 
 	}
 
@@ -87,10 +88,6 @@ public class Search {
 	public void author_is(String resultAuthor) throws Throwable {
 
 		Assert.assertEquals(resultAuthor, bookPage.getAuthor());
-
-		// take screenshot
-		// DriverUtils.takeScreenshot(context.getDriver(),
-		// System.getProperty("user.dir") + "/sailormoon7.png");
 	}
 
 }
