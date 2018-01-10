@@ -31,7 +31,7 @@ public class HomePage {
 		//driver.get(url);
 	}
 
-	public void Search(String searchTerm) {
+	public void Search(String searchTerm) {	
 		WebElement searchBar = driver.findElement(searchBarLocator);
 		searchBar.clear();
 		searchBar.sendKeys(searchTerm);

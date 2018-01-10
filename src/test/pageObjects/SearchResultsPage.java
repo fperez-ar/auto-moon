@@ -17,7 +17,8 @@ import test.utils.RegexUtilities;
 public class SearchResultsPage {
 
 	private WebDriver driver;
-	public By searchSortLocator = By.xpath("//select[@name='searchSortBy']"); // By.name("searchSortBy");
+	public By searchSortLocator = By.xpath("//select[@name='searchSortBy']");
+	// By.name("searchSortBy"); //doesn't work because there is another element by the same name
 
 	By bookItemLocator = By.cssSelector("div.book-item");
 	//only to be used as a child of book-item

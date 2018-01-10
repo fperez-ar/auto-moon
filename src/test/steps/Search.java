@@ -40,13 +40,12 @@ public class Search {
 		if (scenario.isFailed()) {
 			scenario.write("Failed in URL: " + context.getDriver().getCurrentUrl() );
 		}
-
-
+		
 		scenario.write("* Cheapest price found: "+context.retrieveData("price") );
 		scenario.write("* See "+context.getDriver().getCurrentUrl() );
 		final byte[] screenshot = DriverUtils.takeScreenshotAsByteArray(context.getDriver());
 		scenario.embed(screenshot, "image/png");
-		
+
 		context.getDriver().quit();
 	}
 
