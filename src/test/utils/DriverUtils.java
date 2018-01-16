@@ -36,7 +36,7 @@ public class DriverUtils {
 
 	private static void setUpFirefox() {
 		// TODO: Detect OS and select route
-		String os = System.getProperty("os.name");
+		String os = System.getProperty("os.name").toLowerCase();
 		String driverPath = null;
 
 		if (os.contains("win")) {
@@ -51,7 +51,7 @@ public class DriverUtils {
 
 	private static void setUpChrome() {
 		// TODO: Detect OS and select route
-		String os = System.getProperty("os.name");
+		String os = System.getProperty("os.name").toLowerCase();
 		String driverPath = null;
 
 		if (os.contains("win")) {
