@@ -11,7 +11,7 @@ public class HomePage {
 
 	private WebDriver driver;
 	private String url = "https://www.bookdepository.com";
-	private By searchBarLocator = By.name("searchTerm")
+	private By searchBarLocator = By.name("searchTerm");
 
 
 	public HomePage(Context context) {
